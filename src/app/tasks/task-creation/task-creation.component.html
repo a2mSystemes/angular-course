@@ -1,0 +1,15 @@
+<form>
+  <fieldset #taskForm>
+    <label for="title">Title :</label>
+    <input type="text" name="title" id="title" #title [value]="task.title">
+    <br>
+    <label for="summary">Summary :</label>
+    <input type="text" name="summary" id="summary" #summary [value]="task.summary">
+    <br>
+    <label for="dueDate">Due Date :</label>
+    <input type="date" name="dueDate" id="dueDate" #dueDate [value]="task.dueDate">
+  </fieldset>
+  <fieldset>
+    <button (click)="validateTask()">Add</button>
+  </fieldset>
+</form>
