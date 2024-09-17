@@ -1,3 +1,9 @@
+# Udemy Angular course TP
+
+# Author
+
+This course was design by [Maximilian Schwarzmuller](https://www.udemy.com/user/maximilian-schwarzmuller/) on [Udemy](https://www.udemy.com)
+
 # Essentials
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
