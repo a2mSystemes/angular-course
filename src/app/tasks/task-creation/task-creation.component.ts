@@ -1,26 +1,32 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
-import { Task } from '../task/task.model';
+import { TasksService } from './../tasks.service';
+import { Component, EventEmitter, Output, Input, inject } from '@angular/core';
+import { type NewTaskData } from '../task/task.model';
 
 @Component({
   selector: 'app-task-creation',
-  standalone: true,
-  imports: [],
   templateUrl: './task-creation.component.html',
   styleUrl: './task-creation.component.css'
 })
 export class TaskCreationComponent {
 
-  @Input() task: Task = {
-    id: '',
-    userId: '',
+  private TasksService = inject(TasksService)
+
+  task: NewTaskData = {
     title: '',
     summary: '',
     dueDate: '',
   };
-  @Output() newTask = new EventEmitter<Task>();
+  @Input({required: true}) userId!: string;
+  @Output() close = new EventEmitter();
 
-validateTask() {
-  this.newTask.emit(this.task);
+
+onCancel() {
+  this.close.emit();
+}
+
+onSubmit(){
+  this.TasksService.addTask(this.task, this.userId);
+  this.onCancel();
 }
 
 }
